@@ -1,0 +1,102 @@
+# ---------------------------------------------------------------
+# Project docs (markdown files get uploaded here later)
+# ---------------------------------------------------------------
+docs/
+
+# ---------------------------------------------------------------
+# Visual Studio
+# ---------------------------------------------------------------
+# IDE cache, IntelliSense DBs, precompiled headers (~100MB, fully regenerated)
+.vs/
+
+# Per-user project settings (debug args, working dir, etc.)
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.db-shm
+*.VC.db-wal
+*.VC.opendb
+*.ipch
+*.aps
+*.ncb
+*.sdf
+*.opensdf
+
+# ---------------------------------------------------------------
+# Build output
+# ---------------------------------------------------------------
+# Platform / configuration folders (x64/Debug, Release, etc.)
+x64/
+x86/
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Ll]og/
+[Ll]ogs/
+
+# Compiler / linker artifacts
+*.obj
+*.o
+*.lib
+*.a
+*.dll
+*.exe
+*.exp
+*.ilk
+*.pdb
+*.idb
+*.pch
+*.iobj
+*.ipdb
+*.tlog
+*.lastbuildstate
+*.unsuccessfulbuild
+*.log
+*.bsc
+*.sbr
+
+# C++ modules / header-unit dependency scan output (from x64/Debug/*.dt.*)
+*.ifc
+*.dt.d.json
+*.dt.module.json
+*.dt.module.json.command
+
+# Static analysis / profiling
+*.sarif
+*.nativecodeanalysis.xml
+*.psess
+*.vsp
+*.vspx
+*.cppcheck*
+
+# ---------------------------------------------------------------
+# Other IDEs / editors
+# ---------------------------------------------------------------
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+.claude
+
+# ---------------------------------------------------------------
+# Claude Code (local-only settings)
+# ---------------------------------------------------------------
+.claude/settings.local.json
+
+# ---------------------------------------------------------------
+# OS junk
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
