@@ -140,6 +140,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="SCPCDMS.cpp" />
+    <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="ds\ParcelBST.cpp" />
+    <ClCompile Include="modules\ParcelIntake.cpp" />
+    <ClCompile Include="modules\ServiceManager.cpp" />
+    <ClCompile Include="modules\ResourceManager.cpp" />
+    <ClCompile Include="modules\ActivityLog.cpp" />
+    <ClCompile Include="modules\ParcelCategory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Models.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="ds\Queue.h" />
+    <ClInclude Include="ds\PriorityQueue.h" />
+    <ClInclude Include="ds\CircularQueue.h" />
+    <ClInclude Include="ds\Stack.h" />
+    <ClInclude Include="ds\ParcelBST.h" />
+    <ClInclude Include="modules\ParcelIntake.h" />
+    <ClInclude Include="modules\ServiceManager.h" />
+    <ClInclude Include="modules\ResourceManager.h" />
+    <ClInclude Include="modules\ActivityLog.h" />
+    <ClInclude Include="modules\ParcelCategory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

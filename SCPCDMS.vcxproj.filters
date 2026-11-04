@@ -13,10 +13,75 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ds">
+      <UniqueIdentifier>{B6E1C2A4-3F5D-4E7A-9C1B-2D8F0A6E4C31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="modules">
+      <UniqueIdentifier>{C7F2D3B5-4A6E-4F8B-8D2C-3E9A1B7F5D42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SCPCDMS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ds\ParcelBST.cpp">
+      <Filter>ds</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\ParcelIntake.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\ServiceManager.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\ResourceManager.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\ActivityLog.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+    <ClCompile Include="modules\ParcelCategory.cpp">
+      <Filter>modules</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Models.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ds\Queue.h">
+      <Filter>ds</Filter>
+    </ClInclude>
+    <ClInclude Include="ds\PriorityQueue.h">
+      <Filter>ds</Filter>
+    </ClInclude>
+    <ClInclude Include="ds\CircularQueue.h">
+      <Filter>ds</Filter>
+    </ClInclude>
+    <ClInclude Include="ds\Stack.h">
+      <Filter>ds</Filter>
+    </ClInclude>
+    <ClInclude Include="ds\ParcelBST.h">
+      <Filter>ds</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\ParcelIntake.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\ServiceManager.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\ResourceManager.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\ActivityLog.h">
+      <Filter>modules</Filter>
+    </ClInclude>
+    <ClInclude Include="modules\ParcelCategory.h">
+      <Filter>modules</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
