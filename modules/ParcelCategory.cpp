@@ -6,7 +6,6 @@
 
 namespace {
 
-// ---------- small console helpers (local to this module) ----------
 
 std::string trim(const std::string& s)
 {
@@ -26,7 +25,7 @@ std::string toUpper(std::string s)
 bool readLine(const std::string& prompt, std::string& out)
 {
     std::cout << prompt;
-    if (!std::getline(std::cin, out)) {               // end of input: stop instead of looping forever
+    if (!std::getline(std::cin, out)) {
         std::cin.clear();
         out.clear();
         return false;
@@ -35,7 +34,7 @@ bool readLine(const std::string& prompt, std::string& out)
     return true;
 }
 
-// Reads a menu number; returns -1 for anything that is not a whole number.
+// Returns -1 if not a whole number
 int readChoice(const std::string& prompt)
 {
     std::string line;
@@ -54,7 +53,6 @@ bool isAlnum(char c)
     return (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
 }
 
-// "YYYY-MM-DD HH:MM" with sensible ranges
 bool validDateTime(const std::string& s)
 {
     if (s.size() != 16) return false;
@@ -113,7 +111,6 @@ void printDetail(const Parcel& p)
               << "  Arrival        : " << p.arrivalDateTime << "\n";
 }
 
-// Pick a category from a numbered list. Returns false if the choice is invalid.
 bool chooseType(ParcelType& out)
 {
     std::cout << "  1 Standard  2 Large  3 Fragile  4 Document  5 Special-Handling\n";
@@ -142,15 +139,12 @@ bool chooseStatus(ParcelStatus& out)
     return true;
 }
 
-} // namespace
+}
 
-// ===========================================================================
-// Validation
-// ===========================================================================
 
 std::string ParcelCategory::checkParcelId(const std::string& id)
 {
-    // Format "P" followed by exactly four digits, e.g. P0001. A fixed width keeps text order = numeric order.
+    // Fixed width so text order matches numeric order
     if (id.size() != 5 || (id[0] != 'P'))
         return "Parcel ID must look like P0001 (letter P + 4 digits).";
     for (size_t i = 1; i < id.size(); ++i)
@@ -175,14 +169,11 @@ std::string ParcelCategory::checkParcel(const Parcel& p)
     return "";
 }
 
-// ===========================================================================
-// API for other modules
-// ===========================================================================
 
 bool ParcelCategory::registerParcel(const Parcel& parcel)
 {
     if (!checkParcel(parcel).empty()) return false;
-    return tree_.insert(parcel);                      // false on duplicate ID
+    return tree_.insert(parcel);
 }
 
 const Parcel* ParcelCategory::find(const std::string& parcelId) const
@@ -219,9 +210,6 @@ bool ParcelCategory::removeParcel(const std::string& parcelId)
     return tree_.remove(parcelId);
 }
 
-// ===========================================================================
-// Console menu
-// ===========================================================================
 
 void ParcelCategory::run()
 {
@@ -300,8 +288,7 @@ void ParcelCategory::searchMenu() const
 
 void ParcelCategory::showSorted() const
 {
-    // In-order: left subtree, node, right subtree. For a BST this is ascending Parcel ID,
-    // so the listing is sorted without a separate sort.
+    // In-order gives ascending Parcel ID
     printHeader();
     tree_.inOrder([](const Parcel& p) { printRow(p); });
     std::cout << tree_.size() << " parcel(s).\n";
@@ -309,7 +296,7 @@ void ParcelCategory::showSorted() const
 
 void ParcelCategory::showTree() const
 {
-    // Pre-order: each parent is printed before its children, indented by depth, so the shape is visible.
+    // Pre-order shows the tree shape
     tree_.preOrder([](const Parcel& p, int depth) {
         std::cout << std::string(static_cast<size_t>(depth) * 4, ' ')
                   << (depth == 0 ? "[root] " : "|-- ")
@@ -346,7 +333,7 @@ void ParcelCategory::updateMenu()
     const Parcel* found = tree_.search(id);
     if (found == nullptr) { std::cout << "Parcel " << id << " does not exist - cannot update.\n"; return; }
 
-    Parcel p = *found;                                // edit a copy, validate, then write back
+    Parcel p = *found;
     std::cout << "Current record:\n";
     printDetail(p);
     std::cout << " Update: 1 Status  2 Category  3 Recipient  4 Courier  0 Cancel\n"
@@ -412,7 +399,7 @@ void ParcelCategory::filterByMenu() const
         return;
     }
 
-    // The tree is keyed on Parcel ID, so other fields need a full in-order scan; matches come out sorted by ID.
+    // Not the key, so scan every node
     int matches = 0;
     printHeader();
     tree_.inOrder([&](const Parcel& p) {
