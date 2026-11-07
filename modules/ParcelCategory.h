@@ -18,6 +18,11 @@ public:
     bool          setServiceType(const std::string& parcelId, ServiceType type);
     bool          removeParcel(const std::string& parcelId);
     int           count() const { return tree_.size(); }
+    void          displayAll() const;                            // sorted by Parcel ID
+
+    // visit(const Parcel&) in ascending Parcel ID order
+    template <typename Visitor>
+    void forEach(Visitor visit) const { tree_.inOrder(visit); }
 
     // Empty string means valid
     static std::string checkParcelId(const std::string& id);
